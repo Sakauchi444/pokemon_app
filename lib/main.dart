@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'), 
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -76,34 +76,48 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+        width: MediaQuery.of(context).size.width,
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Stack(
             children: [
-              Image.network(
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
-                height: 100,
-                width: 100,
-                ),
-              const Text(
-                'pikachu',
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-              ),
-              // const Chip(
-              //   label: Text('electric'),
-              //   backgroundColor: Colors.yellow,
-              // ),
               Container(
-                child: const Text('electric'),
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Colors.yellow,
-                  borderRadius: BorderRadius.circular(20),
+                padding: const EdgeInsets.all(32),
+                child: Image.network(
+                  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+                  height: 100,
+                  width: 100,
                 ),
               ),
-          ],) 
-        ),
-    ); 
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: const Text(
+                  'No.25',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const Text(
+            'pikachu',
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          ),
+          // const Chip(
+          //   label: Text('electric'),
+          //   backgroundColor: Colors.yellow,
+          // ),
+          Container(
+            child: const Text('electric'),
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: Colors.yellow,
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+        ]),
+      ),
+    );
   }
 }
